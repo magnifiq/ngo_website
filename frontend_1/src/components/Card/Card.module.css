@@ -1,0 +1,21 @@
+.card {
+  max-width: calc(25% - 1em);
+  flex: 1 1 calc(25% - 1em);
+  margin-bottom: 1em;
+}
+
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #6090d9;
+}
+
+.card_btn:hover {
+  background-color: #6090d9 !important;
+  color: white;
+}
+.card_btn_wrapper {
+  margin-left: 9px;
+}
