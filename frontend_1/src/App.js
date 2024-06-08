@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import News from './pages/News/News';
 import NewsDetail from './pages/News/NewsDetail';
 import Admin from './pages/Admin/Admin';
 import Main from './pages/Main/Main';
