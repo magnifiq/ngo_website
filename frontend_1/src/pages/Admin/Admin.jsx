@@ -1,9 +1,18 @@
-import AdminFormContent from "../../components/AdminForm/AdminFormContent/AdminFormContent";
+import{ Link } from 'react-router-dom';
 
 const Admin = () => {
   return (
     <div>
-      <AdminFormContent contentType="news" />
+      <nav>
+        <ul>
+          <li>
+            <Link to="/admin/news">News</Link>
+          </li>
+          <li>
+            <Link to="/admin/others">Others</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

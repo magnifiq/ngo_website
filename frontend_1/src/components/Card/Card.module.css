@@ -19,3 +19,17 @@
 .card_btn_wrapper {
   margin-left: 9px;
 }
+
+@media (max-width: 768px) {
+  .card {
+    max-width: calc(50% - 1em);
+    flex: 1 1 calc(50% - 1em);
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    max-width: calc(100% - 1em);
+    flex: 1 1 calc(100% - 1em);
+  }
+}

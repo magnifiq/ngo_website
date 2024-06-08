@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import { Typography, Paper, IconButton, Box } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -34,21 +33,30 @@ const AdminFormContent = ({ contentType }) => {
     }
   }, [contentType]);
 
+  const handleDescriptionChange = (value) => {
+    setFormData((prevState) => ({ ...prevState, text: value }));
+  };
+
   const handleChange = (e) => {
     if (e.target.name === "image") {
       setImageFile(e.target.files[0]);
     } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const data = new FormData();
     data.append("title", formData.title);
     data.append("category", formData.category);
     data.append("text", formData.text);
     data.append("creation_date", formData.creation_date);
+
     if (imageFile) {
       data.append("image", imageFile);
     } else {
@@ -66,11 +74,12 @@ const AdminFormContent = ({ contentType }) => {
               )
             : [...content, response.data]
         );
+
         setFormData({
           image_url: "",
           title: "",
           text: "",
-          creation_date: "",
+          creation_date: new Date().toISOString().split("T")[0],
           category: "Загальне",
         });
         setEditId(null);
@@ -80,14 +89,17 @@ const AdminFormContent = ({ contentType }) => {
   };
 
   const handleEdit = (item) => {
+    console.log("Editing item:", item);
     setFormData({
-      image_url: item.image_url,
-      title: item.title,
-      text: item.text,
-      creation_date: item.creation_date,
-      category: item.category,
+      image_url: item.image_url || "",
+      title: item.title || "",
+      text: item.text || "",
+      creation_date:
+        item.creation_date || new Date().toISOString().split("T")[0],
+      category: item.category || "Загальне",
     });
     setEditId(item._id);
+    setImageFile(null);
   };
 
   const handleDelete = (id) => {
@@ -106,6 +118,7 @@ const AdminFormContent = ({ contentType }) => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         isEditing={Boolean(editId)}
+        handleDescriptionChange={handleDescriptionChange}
       />
       <Box m={5}>
         <Typography variant="h5" gutterBottom>

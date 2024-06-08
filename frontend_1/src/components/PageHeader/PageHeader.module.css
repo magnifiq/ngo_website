@@ -4,3 +4,9 @@
 .main_header{
     font-family: "Playfair Display", serif !important;
 }
+
+@media (max-width: 768px) {
+    .main_header{
+        font-size: 1.5rem !important;
+    }
+}

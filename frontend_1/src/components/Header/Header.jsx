@@ -67,7 +67,6 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
@@ -100,7 +99,7 @@ const Header = () => {
     >
       <Toolbar className={styles.toolbar}>
         <div className={styles.toolbarContent}>
-          <div className={styles.logo}>
+          <div className={`${styles.logo} ${styles.part}`}>
             <img
               className={styles.logo_img}
               src="/assets/header/logo_2.png"
@@ -123,7 +122,7 @@ const Header = () => {
           >
             {DrawerList}
           </Drawer>
-          <div className={styles.menu_links}>
+          <div className={`${styles.menu_links} ${styles.part}`}>
             {mainMenuSections.map((section, index) => (
               <Link
                 key={section}
@@ -140,7 +139,7 @@ const Header = () => {
             ))}
           </div>
 
-          <div className={styles.contacts}>
+          <div className={`${styles.contacts} ${styles.part}`}>
             <Button
               variant="outlined"
               className={styles.btn_contacts}
