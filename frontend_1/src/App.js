@@ -10,7 +10,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import AdminFormContent from "./components/AdminForm/AdminFormContent/AdminFormContent";
 
-
+import './App.css';
 
 
 function App() {
