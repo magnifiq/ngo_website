@@ -1,6 +1,8 @@
 ﻿# NGO website 
- > The fullstack project with own CMS
+ _The fullstack project with own CMS_
+  
  _There is  authentication implemented on frontend and backend_
+ 
 > [!IMPORTANT]
 > To launch a website
 > 1. npm install
