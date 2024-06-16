@@ -50,7 +50,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", uploadMultiple.array("images", 10), async (req, res) => {
-  const { title, text, creation_date } = req.body;
+  const { title, text, creation_date, category, drive_link } = req.body;
   const imageUrls = req.files.map((file) => `/uploads/${file.filename}`);
 
   const gallery = new Gallery({
@@ -58,6 +58,8 @@ router.post("/", uploadMultiple.array("images", 10), async (req, res) => {
     text,
     creation_date,
     images: imageUrls,
+    category,
+    drive_link,
   });
 
   try {
@@ -77,6 +79,8 @@ router.put("/:id", uploadMultiple.array("images", 10), async (req, res) => {
     event.title = req.body.title || event.title;
     event.text = req.body.text || event.text;
     event.creation_date = req.body.creation_date || event.creation_date;
+    event.category = req.body.category || event.category;
+    event.drive_link = req.body.drive_link || event.drive_link;
     if (req.files.length > 0) {
       event.images = req.files.map((file) => `/uploads/${file.filename}`);
     }

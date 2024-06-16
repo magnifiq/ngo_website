@@ -3,10 +3,7 @@ require("dotenv").config();
 
 const galleryDbUri = process.env.GALLERY_CONN;
 
-const galleryConnection = mongoose.createConnection(galleryDbUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const galleryConnection = mongoose.createConnection(galleryDbUri);
 
 galleryConnection.on(
   "error",

@@ -3,10 +3,7 @@ require("dotenv").config();
 
 const newsDbUri = process.env.NEWS_CONN;
 
-const newsConnection = mongoose.createConnection(newsDbUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const newsConnection = mongoose.createConnection(newsDbUri);
 
 newsConnection.on(
   "error",
