@@ -12,9 +12,9 @@ const PageConstructor = ({
   isLoading,
   extension_path,
   subtitle,
-  mainTitle}
-) => {
-  
+  mainTitle,
+  isBlog = false,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
@@ -30,7 +30,11 @@ const PageConstructor = ({
 
   return (
     <div className={styles.sections}>
-      <PageHeader subtitle={subtitle} mainTitle={mainTitle} />
+      <PageHeader
+        subtitle={subtitle}
+        mainTitle={mainTitle}
+        className={styles.header}
+      />
 
       {!isLoading && data.length > 0 && (
         <CardsCollection data={currentItems} extension_path={extension_path} />

@@ -1,7 +1,19 @@
 import React from "react";
-import { TextField, Button, Typography, Paper, Grid } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Typography,
+  Paper,
+  Grid,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+
+import { categories } from "../../pages/Blog/constants/categories";
 
 const AdminForm = ({
   formData,
@@ -9,6 +21,9 @@ const AdminForm = ({
   handleSubmit,
   isEditing,
   handleDescriptionChange,
+  image,
+  handleImageName,
+  contentType,
 }) => {
   return (
     <Paper
@@ -31,14 +46,42 @@ const AdminForm = ({
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              label="Category"
-              name="category"
-              onChange={handleChange}
-              value={formData.category}
-            />
+            {contentType === "blog" ? (
+              <div>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Category
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={formData.category}
+                    label="Category"
+                    onChange={(e) =>
+                      handleChange({
+                        target: {
+                          name: "category",
+                          value: e.target.value,
+                        },
+                      })
+                    }
+                  >
+                    {categories.map((category) => (
+                      <MenuItem value={category}>{category}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </div>
+            ) : (
+              <TextField
+                fullWidth
+                variant="outlined"
+                label="Category"
+                name="category"
+                onChange={handleChange}
+                value={formData.category}
+              />
+            )}
           </Grid>
           <Grid item xs={12}>
             <ReactQuill
@@ -70,6 +113,7 @@ const AdminForm = ({
                 onChange={handleChange}
               />
             </Button>
+            {handleImageName(image)}
           </Grid>
           <Grid item xs={12}>
             <Button variant="contained" color="primary" type="submit" fullWidth>

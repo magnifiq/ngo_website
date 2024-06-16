@@ -16,11 +16,16 @@ h6 {
 
 .content_container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
   padding: 30px;
 }
-
+.content {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .content_header {
   align-self: flex-start;
 }
@@ -28,8 +33,10 @@ h6 {
 .content_img_container {
   margin: 20px 0;
   max-width: 800px;
+  width: 100%;
+  align-self: center;
 }
 .content_img {
-  width:100%;
+  width: 100%;
   height: auto;
 }

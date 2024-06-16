@@ -1,0 +1,8 @@
+.content {
+  background-image: url("../../../public/assets/error/error.png");
+  background-size: cover;
+  background-position: center;
+  padding: 300px 0;
+  width: 100%;
+  height: max-content;
+}

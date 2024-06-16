@@ -2,6 +2,16 @@
   max-width: calc(25% - 1em);
   flex: 1 1 calc(25% - 1em);
   margin-bottom: 1em;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .card_header {
@@ -12,12 +22,18 @@
   color: #6090d9;
 }
 
+.card_btn_wrapper {
+  margin-top: auto;
+  padding: 8px;
+}
+
+.card_btn {
+  justify-self: flex-end;
+}
+
 .card_btn:hover {
   background-color: #6090d9 !important;
   color: white;
-}
-.card_btn_wrapper {
-  margin-left: 9px;
 }
 
 @media (max-width: 768px) {

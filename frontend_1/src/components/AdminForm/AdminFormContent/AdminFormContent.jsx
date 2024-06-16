@@ -5,12 +5,35 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AdminForm from "../AdminForm";
 import Grid from "@mui/material/Grid";
 
+import { categories } from "../../../pages/Blog/constants/categories";
+
 import {
   fetchNews,
   editNewsArticle,
   createNewsArticle,
   deleteNewsArticle,
 } from "../../../api/news/apiNews";
+
+import {
+  fetchProjects,
+  editProjectsArticle,
+  createProjectsArticle,
+  deleteProjectsArticle,
+} from "../../../api/projects/apiProjects";
+
+import {
+  fetchEvents,
+  editEventsArticle,
+  createEventsArticle,
+  deleteEventsArticle,
+} from "../../../api/events/apiEvents";
+
+import {
+  fetchBlogs,
+  editBlogsArticle,
+  createBlogsArticle,
+  deleteBlogsArticle,
+} from "../../../api/blog/apiBlog";
 
 const AdminFormContent = ({ contentType }) => {
   const [content, setContent] = useState([]);
@@ -19,13 +42,48 @@ const AdminFormContent = ({ contentType }) => {
     title: "",
     text: "",
     creation_date: new Date().toISOString().split("T")[0],
-    category: "Загальне",
+    category: contentType === "blog" ? categories[0] : "Загальне",
   });
   const [editId, setEditId] = useState(null);
   const [imageFile, setImageFile] = useState(null);
 
+  const chooseCategory = (category) => {
+    if (category === "news") {
+      return {
+        fetchData: fetchNews,
+        editFunc: editNewsArticle,
+        createFunc: createNewsArticle,
+        deleteFunc: deleteNewsArticle,
+      };
+    }
+    if (category === "projects") {
+      return {
+        fetchData: fetchProjects,
+        editFunc: editProjectsArticle,
+        createFunc: createProjectsArticle,
+        deleteFunc: deleteProjectsArticle,
+      };
+    }
+    if (category === "events") {
+      return {
+        fetchData: fetchEvents,
+        editFunc: editEventsArticle,
+        createFunc: createEventsArticle,
+        deleteFunc: deleteEventsArticle,
+      };
+    }
+    if (category === "blog") {
+      return {
+        fetchData: fetchBlogs,
+        editFunc: editBlogsArticle,
+        createFunc: createBlogsArticle,
+        deleteFunc: deleteBlogsArticle,
+      };
+    }
+  };
+
   useEffect(() => {
-    const fetchData = contentType === "news" ? fetchNews : null;
+    const { fetchData } = chooseCategory(contentType);
     if (fetchData) {
       fetchData()
         .then((response) => setContent(response.data))
@@ -38,6 +96,7 @@ const AdminFormContent = ({ contentType }) => {
   };
 
   const handleChange = (e) => {
+    console.log(e);
     if (e.target.name === "image") {
       setImageFile(e.target.files[0]);
     } else {
@@ -51,6 +110,24 @@ const AdminFormContent = ({ contentType }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (imageFile) {
+      if (imageFile.size > 1024 * 1024) {
+        alert("Розмір фото має бути меншим за 1MB.");
+        return;
+      }
+
+      const fileExtension = imageFile.name.split(".").pop().toLowerCase();
+      console.log(fileExtension);
+      if (
+        fileExtension !== "jpg" &&
+        fileExtension !== "jpeg" &&
+        fileExtension !== "png" &&
+        fileExtension !== "gif"
+      ) {
+        alert("Формат зображення має бути jpg, jpeg, png або gif.");
+        return;
+      }
+    }
     const data = new FormData();
     data.append("title", formData.title);
     data.append("category", formData.category);
@@ -63,7 +140,8 @@ const AdminFormContent = ({ contentType }) => {
       data.append("image_url", formData.image_url);
     }
 
-    const submitData = editId ? editNewsArticle : createNewsArticle;
+    const { editFunc, createFunc } = chooseCategory(contentType);
+    const submitData = editId ? editFunc : createFunc;
 
     submitData(editId || data, data)
       .then((response) => {
@@ -89,13 +167,13 @@ const AdminFormContent = ({ contentType }) => {
   };
 
   const handleEdit = (item) => {
-    console.log("Editing item:", item);
     setFormData({
       image_url: item.image_url || "",
       title: item.title || "",
       text: item.text || "",
       creation_date:
-        item.creation_date || new Date().toISOString().split("T")[0],
+        item.creation_date.split("T")[0] ||
+        new Date().toISOString().split("T")[0],
       category: item.category || "Загальне",
     });
     setEditId(item._id);
@@ -103,14 +181,23 @@ const AdminFormContent = ({ contentType }) => {
   };
 
   const handleDelete = (id) => {
-    const deleteData = contentType === "news" ? deleteNewsArticle : null;
-    if (deleteData) {
-      deleteData(id)
+    const { deleteFunc } = chooseCategory(contentType);
+    if (deleteFunc) {
+      deleteFunc(id)
         .then(() => setContent(content.filter((item) => item._id !== id)))
         .catch((error) => console.error("Error deleting content:", error));
     }
   };
 
+  const handleImageName = (image) => {
+    if (image) {
+      if (!(image instanceof File)) {
+        return image.split("/")[2];
+      }
+      return image.name || image.img_url;
+    }
+    return "Any image";
+  };
   return (
     <div>
       <AdminForm
@@ -119,6 +206,9 @@ const AdminFormContent = ({ contentType }) => {
         handleSubmit={handleSubmit}
         isEditing={Boolean(editId)}
         handleDescriptionChange={handleDescriptionChange}
+        image={imageFile || formData.image_url}
+        handleImageName={handleImageName}
+        contentType={contentType}
       />
       <Box m={5}>
         <Typography variant="h5" gutterBottom>
