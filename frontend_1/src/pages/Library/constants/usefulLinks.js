@@ -1,4 +1,6 @@
 const usefulLinks = {
+  "Гендерний профіль громади":
+    "https://drive.google.com/drive/folders/1FUXVun20ha2scfD-uQalf64zSBVdMuSQ",
   "Про забезпечення рівних прав та можливостей жінок та чоловіків":
     "https://zakon.rada.gov.ua/laws/show/2866-15#Text",
   "Про запобігання та протидію домашньому насильству":

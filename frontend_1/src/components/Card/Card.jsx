@@ -41,26 +41,37 @@ const Card = ({ extension_path, id, data }) => {
             <Typography variant="body2">
               <Box sx={{ fontWeight: "bold" }}>{category}</Box>
             </Typography>
-            <Typography variant="body2" className={styles}>
+            <Typography variant="body2">
               {new Date(creation_date).toLocaleDateString()}
             </Typography>
           </div>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <Box
+          <div className={styles.card_info}>
+            <Typography
+              gutterBottom
+              variant="h5"
               component="div"
-              sx={{
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                width: "100%",
-                maxHeight: "100px",
-              }}
-              dangerouslySetInnerHTML={{ __html: sanitizedText }}
-            ></Box>
-          </Typography>
+              className={styles.card_title}
+            >
+              {title}
+            </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              className={styles.card_text}
+            >
+              <Box
+                component="div"
+                sx={{
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  width: "100%",
+                  maxHeight: "100px",
+                }}
+                dangerouslySetInnerHTML={{ __html: sanitizedText }}
+              ></Box>
+            </Typography>
+          </div>
         </CardContent>
         <CardActions className={styles.card_btn_wrapper}>
           <Button

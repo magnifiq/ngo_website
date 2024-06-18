@@ -1,10 +1,9 @@
 const categories = [
-  "All",
-  "Technology",
-  "Health",
-  "Lifestyle",
-  "Education",
-  "Business",
+  "Жіноче здоров'я",
+  "Жінки в політиці",
+  "Жінки науковиці та культурні діячки",
+  "Материнство",
+  "Рівні права і можливості",
 ];
 
 export { categories };

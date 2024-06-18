@@ -32,23 +32,23 @@ const Admin = () => {
       </AppBar>
       <List component="nav">
         <ListItem component={Link} to="/admin/news">
-          <ListItemText primary="News" />
+          <ListItemText primary="Новини" />
         </ListItem>
         <Divider />
         <ListItem component={Link} to="/admin/projects">
-          <ListItemText primary="Projects" />
+          <ListItemText primary="Проєкти" />
         </ListItem>
         <Divider />
         <ListItem component={Link} to="/admin/events">
-          <ListItemText primary="Events" />
+          <ListItemText primary="Події" />
         </ListItem>
         <Divider />
         <ListItem component={Link} to="/admin/gallery">
-          <ListItemText primary="Gallery" />
+          <ListItemText primary="Галереї" />
         </ListItem>
         <Divider />
         <ListItem component={Link} to="/admin/blog">
-          <ListItemText primary="Blog" />
+          <ListItemText primary="Блог" />
         </ListItem>
       </List>
     </div>

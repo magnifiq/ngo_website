@@ -18,8 +18,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
   color: #6090d9;
+  margin-bottom: 15px;
+}
+
+.card_title {
+  max-height: 40%;
+}
+.card_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card_btn_wrapper {

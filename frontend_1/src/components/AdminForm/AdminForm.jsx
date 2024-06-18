@@ -31,7 +31,7 @@ const AdminForm = ({
       style={{ padding: "2em", maxWidth: "800px", margin: "2em auto" }}
     >
       <Typography variant="h4" gutterBottom>
-        {isEditing ? "Edit Content" : "Add Content"}
+        {isEditing ? "Редагування вмісту" : "Додавання вмісту"}
       </Typography>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
@@ -117,7 +117,7 @@ const AdminForm = ({
           </Grid>
           <Grid item xs={12}>
             <Button variant="contained" color="primary" type="submit" fullWidth>
-              {isEditing ? "Update Content" : "Add Content"}
+              {isEditing ? "Редагування вмісту" : "Додавання вмісту"}
             </Button>
           </Grid>
         </Grid>
