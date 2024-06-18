@@ -5,4 +5,5 @@ module.exports = {
   PROJECTS_NOT_FOUND: "Projects not found",
   EVENTS_NOT_FOUND: "Events not found",
   BLOGS_NOT_FOUND: "Blogs not found",
+  
 };
