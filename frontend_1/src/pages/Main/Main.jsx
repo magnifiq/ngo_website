@@ -25,6 +25,7 @@ const Main = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentPageGallery, setCurrentPageGallery] = useState(1);
   const baseURL = process.env.REACT_APP_API_BASE_URL;
+  console.log(latestNews);
   useEffect(() => {
     fetchLatestNews()
       .then((response) => {
