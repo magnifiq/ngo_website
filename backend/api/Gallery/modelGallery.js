@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const galleryConnection = require("./dbGallery");
+const connectToGalleryDB = require("./dbGallery");
 
 const gallerySchema = new mongoose.Schema({
   title: String,
@@ -10,5 +10,7 @@ const gallerySchema = new mongoose.Schema({
   drive_link: String,
   edit_date: Date,
 });
+
+const galleryConnection = connectToGalleryDB();
 
 module.exports = galleryConnection.model("Gallery", gallerySchema);
