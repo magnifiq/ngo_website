@@ -11,6 +11,12 @@ const gallerySchema = new mongoose.Schema({
   edit_date: Date,
 });
 
-const galleryConnection = connectToGalleryDB();
+let Gallery;
+try {
+  const galleryConnection = connectToGalleryDB();
+  Gallery = galleryConnection.model("Gallery", gallerySchema);
+} catch (error) {
+  console.error("Gallery DB connection error:", error);
+}
 
-module.exports = galleryConnection.model("Gallery", gallerySchema);
+module.exports = Gallery;
