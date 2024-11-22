@@ -1,0 +1,31 @@
+.library {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.library_content {
+  max-width: 1200px;
+  width: 100%;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 50px;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.3rem;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.link::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #6090d9;
+}

@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.text_content {
+  font-family: "Roboto", sans-serif;
+}
+
+.text_content h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif !important;
+}
+
+.content_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.content {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.content_header {
+  align-self: flex-start;
+}
+
+.content_img_container {
+  margin: 20px 0;
+  max-width: 800px;
+  width: 100%;
+  align-self: center;
+}
+.content_img {
+  width: 100%;
+  height: auto;
+}

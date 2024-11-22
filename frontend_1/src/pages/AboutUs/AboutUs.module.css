@@ -1,0 +1,253 @@
+.aboutUs {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.aboutUs_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.aboutUs_values_content {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  padding: 0 20px;
+}
+.values_photo {
+  max-width: 45%;
+  justify-content: center;
+  display: flex;
+}
+
+.values_photo_img {
+  max-width: 100%;
+  height: auto;
+  border: 15px solid #c1d4f0;
+}
+
+.cards {
+  margin-top: 20px;
+  display: flex;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #d2e1f8;
+  display: flex;
+  flex: 1 1 0;
+  padding: 20px;
+}
+
+.card_header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.card_title {
+  color: #6090d9;
+  font-weight: 600;
+}
+
+.aboutUs_history {
+  display: flex;
+  justify-content: center;
+  margin: 70px 0;
+}
+.aboutUs_history_content {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  padding: 0 20px;
+}
+.values_info_text ul {
+  margin: 0;
+  padding: 0;
+}
+.values_info_text li {
+  position: relative;
+  list-style-type: none;
+  margin-bottom: 10px;
+  padding-left: 25px;
+}
+.values_info_text li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #6090d9;
+}
+
+.gallery {
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: center;
+  width: 100%;
+  background-color: #3d4451;
+  padding: 20px 0;
+}
+.gallery_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  max-width: 1200px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.gallery_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery_mainPart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.gallery_paggination {
+  cursor: pointer;
+}
+
+.gallery_mainContent {
+  display: flex;
+  flex-direction: column;
+}
+.gallery_person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery_person_img {
+  width: auto;
+  height: 180px;
+  object-position: top center;
+  border-radius: 20%;
+  margin-bottom: 10px;
+}
+.paginationDots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #747474;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+
+.dot.active {
+  background-color: #fff;
+}
+.results_content {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 0 20px;
+}
+.results_sums {
+  display: flex;
+  flex-direction: column;
+}
+
+.results_sum {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.results_header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.results_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.link_result {
+  color: #6090d9;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.person_text {
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .cards {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutUs_values_content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .values_photo {
+    max-width: 80%;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .aboutUs_history_content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .results_content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .results_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .results_sums {
+    align-items: center;
+  }
+}
